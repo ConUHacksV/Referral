@@ -37,8 +37,12 @@ class login extends Component {
             <TextField id='password' label='Password' fullWidth />
           </form>
           <Grid>
-            <Button>Login</Button>
-            <Button>Register</Button>
+            <Link to='/homepage'>
+              <Button>Login</Button>
+            </Link>
+            <Link to='/register'>
+              <Button>Register</Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>

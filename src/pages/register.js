@@ -19,7 +19,23 @@ const styles = theme => ({
 });
 
 class login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      email: ''
+    };
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   render() {
+    console.log(this.state.username);
     const { classes } = this.props;
     return (
       <Grid
@@ -32,13 +48,41 @@ class login extends Component {
       >
         <Grid item justify='center' alignItems='center' sm={3}>
           <Typography variant='h3'>Register</Typography>
-          <form>
-            <TextField id='email' label='McGill Email' fullWidth />
-            <TextField id='username' label='Username' fullWidth />
-            <TextField id='password' label='Password' fullWidth />
-            <TextField id='password' label='Confirm Password' fullWidth />
+          <form onSubmit>
+            <TextField
+              id='email'
+              label='McGill Email'
+              name='email'
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              id='username'
+              label='Username'
+              name='username'
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              id='password'
+              label='Password'
+              name='password'
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              id='password'
+              label='Confirm Password'
+              name='confirmPassword'
+              onChange={this.handleChange}
+              fullWidth
+            />
           </form>
-          <Button>Register</Button>
+          <Grid>
+            <Link to='/homepage'>
+              <Button>Register</Button>
+            </Link>
+          </Grid>
         </Grid>
       </Grid>
     );
