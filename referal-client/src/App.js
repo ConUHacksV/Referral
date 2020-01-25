@@ -7,27 +7,27 @@ import { Link } from 'react-router-dom';
 import{ BrowserRouter as Router , Switch, Route } from 'react-router-dom';
 
 // MUI theme
-import { createMuiTheme } from '@material-ui/core/styles';
-import theme from './util/theme';
-
-
-const theme = createMuiTheme(theme);
-
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import themefile from './util/theme';
 
 import login from './pages/login';
 import homepage from './pages/homepage';
 
+const theme = createMuiTheme(themefile);
+
+
+
 
 function App() {
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route exact path='/' component={login} />
           <Route exact path='/homepage' component={homepage} />
         </Switch>
       </Router>
-    </Fragment>
+    </ThemeProvider>
   );
 }
 
