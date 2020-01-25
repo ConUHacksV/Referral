@@ -31,15 +31,14 @@ class login extends Component {
         className={classes.title}
       >
         <Grid item justify='center' alignItems='center' sm={3}>
-          <Typography variant='h3'>McGill Referal</Typography>
+          <Typography variant='h3'>Register</Typography>
           <form>
+            <TextField id='email' label='McGill Email' fullWidth />
             <TextField id='username' label='Username' fullWidth />
             <TextField id='password' label='Password' fullWidth />
+            <TextField id='password' label='Confirm Password' fullWidth />
           </form>
-          <Grid>
-            <Button>Login</Button>
-            <Button>Register</Button>
-          </Grid>
+          <Button>Register</Button>
         </Grid>
       </Grid>
     );
