@@ -34,6 +34,25 @@ class login extends Component {
       [event.target.name]: event.target.value
     });
   };
+
+  onSubmitRegister = () => {
+    // backend should do this.........
+    if (this.state.password === this.state.confirmPassword) {
+      fetch('http://localhost:3000/register', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+          confirmPassword: this.state.confirmPassword,
+          email: this.state.email
+        })
+      }).then(response => response.json());
+    } else {
+      console.log('Please confirm your password');
+    }
+  };
+
   render() {
     console.log(this.state.username);
     const { classes } = this.props;

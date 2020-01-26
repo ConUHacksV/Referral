@@ -19,6 +19,24 @@ const styles = theme => ({
 });
 
 class login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+
+  onSubmitRegister = () => {
+    fetch('http://localhost:3000/login', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    }).then(response => response.json());
+  };
   render() {
     const { classes } = this.props;
     return (
